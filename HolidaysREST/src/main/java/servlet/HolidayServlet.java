@@ -17,6 +17,10 @@ import service.HolidayService;
 @WebServlet("/holiday")
 public class HolidayServlet extends HttpServlet{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5558630745938230994L;
 	private HolidayService holidayservice;
 	private ObjectMapper om;
 
@@ -25,6 +29,8 @@ public class HolidayServlet extends HttpServlet{
 		LocalDate date = LocalDate.parse(req.getParameter("date"));
 		holidayservice.viewHBD(date);
 		holidayservice.viewMonthHol(date);
+		
+		resp.getWriter().write(om.writeValueAsString(holidayservice.viewAllHol()));
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -40,7 +46,9 @@ public class HolidayServlet extends HttpServlet{
 	
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		LocalDate date = LocalDate.parse(req.getParameter("date"));
+		LocalDate date2 = LocalDate.parse(req.getParameter("date2"));
 		Holiday holiday = new Holiday(req.getParameter("name"),date);
-		holidayservice.updateHoliday(holiday);
+		Holiday holi = new Holiday(req.getParameter("name"), date2);
+		holidayservice.updateHoliday(holiday, holi);
 	}
 }

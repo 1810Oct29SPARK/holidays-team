@@ -16,20 +16,17 @@ public class HolidayService {
 	}
 	
 	public Holiday viewHBD(LocalDate date) {
-		hd.viewHolidaybyDate(date);
-		return null;
+		return hd.viewHolidaybyDate(date);
 		
 	}
 	
 	public List<Holiday> viewAllHol() {
-		hd.viewAllHolidays();
-		return null;
+		return hd.viewAllHolidays();
 		
 	}
 	
-	public List<Holiday> viewMonthHol(LocalDate date) {
-		hd.viewMonthHoliday(date);
-		return null;
+	public List<Holiday> viewMonthHol(LocalDate date) {	
+		return hd.viewMonthHoliday(date);
 		
 	}
 	public void deleteHol(Holiday holiday) {
@@ -37,10 +34,8 @@ public class HolidayService {
 		
 	}
 	
-	public Holiday updateHoliday(Holiday holiday) {
-		hd.update(holiday);
-		return holiday;
-		
+	public void updateHoliday(Holiday holiday,Holiday holi) {
+		hd.update(holiday, holi);		
 	}
 	
 	

@@ -11,5 +11,5 @@ public interface HolidayDao {
 	public List<Holiday> viewMonthHoliday(LocalDate date);
 	public void deleteHoliday(Holiday holiday);
 	public void addHoliday(Holiday holiday);
-	public Holiday update(Holiday holiday);	
+	public void update(Holiday holiday,Holiday holi);	
 }
