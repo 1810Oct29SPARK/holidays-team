@@ -20,7 +20,7 @@ public class HolidayDaoImpl implements HolidayDao {
 	}
 
 	@Override
-	public Holiday viewHolidaybyDate(int id) {
+	public Holiday viewHolidaybyId(int id) {
 		Holiday holiday = null;
 		try (SessionFactory sf = HibernateUtil.getSession()) {
 			Session s = sf.getCurrentSession();
@@ -36,7 +36,15 @@ public class HolidayDaoImpl implements HolidayDao {
 
 	@Override
 	public List<Holiday> viewAllHolidays() {
-		return null;
+		List<Holiday> holidays = new ArrayList<>();
+		try (SessionFactory sf = HibernateUtil.getSession()) {
+			Session s = sf.getCurrentSession();
+			Transaction tx = s.beginTransaction();
+			holidays = s.createQuery("from Holiday").getResultList();
+			tx.commit();
+			s.close();
+		}
+		return holidays;
 
 	}
 

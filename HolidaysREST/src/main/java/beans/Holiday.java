@@ -8,8 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="HOLIDAY")
+@Table(name = "HOLIDAY")
 public class Holiday {
+
+	public Holiday() {
+	}
 
 	public Holiday(int id, String name, LocalDate date) {
 		super();
@@ -17,37 +20,44 @@ public class Holiday {
 		this.name = name;
 		this.date = date;
 	}
-	
+
 	@Id
-	@Column(name="HOLIDAY_ID")
+	@Column(name = "HOLIDAY_ID")
 	private int id;
-	@Column(name="HOLIDAY_NAME")
-	private String name; 
-	@Column(name="HOLIDAY_DATE")
+	@Column(name = "HOLIDAY_NAME")
+	private String name;
+	@Column(name = "HOLIDAY_DATE")
 	private LocalDate date;
-	
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public LocalDate getDate() {
 		return date;
 	}
+
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+
 	@Override
 	public String toString() {
 		return "Holiday [id=" + id + ", name=" + name + ", date=" + date + "]";
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,6 +67,7 @@ public class Holiday {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -80,6 +91,5 @@ public class Holiday {
 			return false;
 		return true;
 	}
-	
 
 }

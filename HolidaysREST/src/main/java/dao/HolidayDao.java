@@ -6,7 +6,7 @@ import java.util.List;
 import beans.Holiday;
 
 public interface HolidayDao {
-	public Holiday viewHolidaybyDate(int id);
+	public Holiday viewHolidaybyId(int id);
 	public List<Holiday> viewAllHolidays();
 	public List<Holiday> viewMonthHoliday(LocalDate date);
 	public void deleteHoliday(Holiday holiday);
