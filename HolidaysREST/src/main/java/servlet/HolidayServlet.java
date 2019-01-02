@@ -25,12 +25,12 @@ public class HolidayServlet extends HttpServlet{
 	private ObjectMapper om;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		holidayservice.viewAllHol();
-		LocalDate date = LocalDate.parse(req.getParameter("date"));
-		holidayservice.viewHBD(date);
-		holidayservice.viewMonthHol(date);
+//		holidayservice.viewAllHol();
+//		LocalDate date = LocalDate.parse(req.getParameter("date"));
+//		holidayservice.viewHBD(date);
+//		holidayservice.viewMonthHol(date);
 		
-		resp.getWriter().write(om.writeValueAsString(holidayservice.viewAllHol()));
+		//resp.getWriter().write(om.writeValueAsString(holidayservice.viewAllHol()));
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -40,15 +40,15 @@ public class HolidayServlet extends HttpServlet{
 	
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		LocalDate date = LocalDate.parse(req.getParameter("date"));
-		Holiday holiday = new Holiday(req.getParameter("name"),date);
-		holidayservice.deleteHol(holiday);
+		//Holiday holiday = new Holiday(req.getParameter("name"),date);
+		//holidayservice.deleteHol(holiday);
 	}
 	
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		LocalDate date = LocalDate.parse(req.getParameter("date"));
 		LocalDate date2 = LocalDate.parse(req.getParameter("date2"));
-		Holiday holiday = new Holiday(req.getParameter("name"),date);
-		Holiday holi = new Holiday(req.getParameter("name"), date2);
-		holidayservice.updateHoliday(holiday, holi);
+		//Holiday holiday = new Holiday(req.getParameter("name"),date);
+		//Holiday holi = new Holiday(req.getParameter("name"), date2);
+		//holidayservice.updateHoliday(holiday, holi);
 	}
 }

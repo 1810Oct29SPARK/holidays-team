@@ -12,16 +12,6 @@ public class HolidayService {
 	HolidayDao hd = new HolidayDaoImpl();
 	
 	public void addHolidayToList(String name, LocalDate date) {
-		hd.addHoliday(new Holiday(name, date));
-	}
-	
-	public Holiday viewHBD(LocalDate date) {
-		return hd.viewHolidaybyDate(date);
-		
-	}
-	
-	public List<Holiday> viewAllHol() {
-		return hd.viewAllHolidays();
 		
 	}
 	
