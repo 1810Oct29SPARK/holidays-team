@@ -14,7 +14,8 @@ import com.rev.Hibernate.HibernateUtil;
 import beans.Holiday;
 
 public class HolidayDaoImpl implements HolidayDao {
-
+	SessionFactory sf = HibernateUtil.getSession();
+			
 	public static void main(String[] args) {
 
 	}
@@ -22,8 +23,7 @@ public class HolidayDaoImpl implements HolidayDao {
 	@Override
 	public Holiday viewHolidaybyId(int id) {
 		Holiday holiday = null;
-		try (SessionFactory sf = HibernateUtil.getSession()) {
-			Session s = sf.getCurrentSession();
+		try (Session s = sf.getCurrentSession()) {
 			Transaction tx = s.beginTransaction();
 			holiday = (Holiday) s.get(Holiday.class, id);
 			System.out.println("Holiday" + holiday);
@@ -37,8 +37,7 @@ public class HolidayDaoImpl implements HolidayDao {
 	@Override
 	public List<Holiday> viewAllHolidays() {
 		List<Holiday> holidays = new ArrayList<>();
-		try (SessionFactory sf = HibernateUtil.getSession()) {
-			Session s = sf.getCurrentSession();
+		try (Session s = sf.getCurrentSession()) {
 			Transaction tx = s.beginTransaction();
 			holidays = s.createQuery("from Holiday").getResultList();
 			tx.commit();
@@ -55,17 +54,32 @@ public class HolidayDaoImpl implements HolidayDao {
 
 	@Override
 	public void deleteHoliday(Holiday holiday) {
-
+		try(Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			s.delete(holiday);
+			tx.commit();
+			s.close();
+		}
 	}
 
 	@Override
 	public void addHoliday(Holiday holiday) {
-
+		try(Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			s.save(holiday);
+			tx.commit();
+			s.close();
+		}
 	}
 
 	@Override
 	public void update(Holiday holiday, Holiday holi) {
+		try(Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			s.update(holiday);
+			tx.commit();
+			s.close();
+		}
 
 	}
-
 }
