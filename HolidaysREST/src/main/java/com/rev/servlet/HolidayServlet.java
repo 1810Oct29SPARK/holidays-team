@@ -1,4 +1,4 @@
-package servlet;
+package com.rev.servlet;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import beans.Holiday;
-import service.HolidayService;
+import com.rev.beans.Holiday;
+import com.rev.service.HolidayService;
 
 @WebServlet("/holiday")
 public class HolidayServlet extends HttpServlet{

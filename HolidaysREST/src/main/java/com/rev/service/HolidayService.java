@@ -1,12 +1,15 @@
-package service;
+package com.rev.service;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import beans.Holiday;
-import dao.HolidayDao;
-import dao.HolidayDaoImpl;
+import org.springframework.stereotype.Service;
 
+import com.rev.beans.Holiday;
+import com.rev.dao.HolidayDao;
+import com.rev.dao.HolidayDaoImpl;
+
+@Service(value="holidayService") //now a bean!
 public class HolidayService {
 	
 	HolidayDao hd = new HolidayDaoImpl();
@@ -26,6 +29,10 @@ public class HolidayService {
 	
 	public void updateHoliday(Holiday holiday,Holiday holi) {
 		hd.update(holiday, holi);		
+	}
+	
+	public List<Holiday> viewAllHolidays () {
+		return hd.viewAllHolidays();
 	}
 	
 	

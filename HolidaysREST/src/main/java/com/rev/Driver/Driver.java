@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-import beans.Holiday;
-import dao.HolidayDao;
-import dao.HolidayDaoImpl;
+import com.rev.beans.Holiday;
+import com.rev.dao.HolidayDao;
+import com.rev.dao.HolidayDaoImpl;
 
 public class Driver {
 

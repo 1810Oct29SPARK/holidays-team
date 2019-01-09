@@ -1,4 +1,4 @@
-package beans;
+package com.rev.beans;
 
 import java.time.LocalDate;
 

@@ -1,9 +1,9 @@
-package dao;
+package com.rev.dao;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import beans.Holiday;
+import com.rev.beans.Holiday;
 
 public interface HolidayDao {
 	public Holiday viewHolidaybyId(int id);

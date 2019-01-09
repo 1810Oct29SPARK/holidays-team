@@ -1,4 +1,4 @@
-package dao;
+package com.rev.dao;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -10,8 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.rev.Hibernate.HibernateUtil;
-
-import beans.Holiday;
+import com.rev.beans.Holiday;
 
 public class HolidayDaoImpl implements HolidayDao {
 	SessionFactory sf = HibernateUtil.getSession();
